@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/logo_image_view"
-        android:layout_width="88dp"
-        android:layout_height="88dp"/>
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height"/>
 
     <LinearLayout
         android:id="@+id/root_Text_View"
