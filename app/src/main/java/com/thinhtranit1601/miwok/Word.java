@@ -11,14 +11,13 @@ public class Word {
 
     public Word(String miwok, String english, int image) {
         this.englishWord = english;
-
         this.miwokWord = miwok;
         this.imageResource = image;
     }
 
-    @Override
-    public String toString() {
-        return (this.miwokWord + "\n" + this.englishWord);
+    public Word(String miwokWord, String englishWord) {
+        this.miwokWord = miwokWord;
+        this.englishWord = englishWord;
     }
 
     public String getMiwokWord() {

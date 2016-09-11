@@ -29,7 +29,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word word = getItem(position);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.logo_image_view);
-        imageView.setImageResource(word.getImageResource());
+        if (word.getImageResource() == 0){
+            imageView.setVisibility(View.INVISIBLE);
+        } else {
+            imageView.setImageResource(word.getImageResource());
+        }
 
         TextView miwokTextView = (TextView) view.findViewById(R.id.miwok_text_view);
         miwokTextView.setText(word.getMiwokWord());
