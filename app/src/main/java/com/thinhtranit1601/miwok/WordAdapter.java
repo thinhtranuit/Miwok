@@ -1,11 +1,13 @@
 package com.thinhtranit1601.miwok;
 
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,9 +16,11 @@ import java.util.ArrayList;
  * Created by thinh on 09/09/2016.
  */
 public class WordAdapter extends ArrayAdapter<Word> {
+    private int backgroundColor;
 
-    public WordAdapter(Activity context, ArrayList<Word> words){
+    public WordAdapter(Activity context, ArrayList<Word> words, int backgroundColor){
         super(context, R.layout.list_item , words);
+        this.backgroundColor = backgroundColor;
     }
 
     @Override
@@ -28,18 +32,26 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
         Word word = getItem(position);
 
+        //make image for imageView to Describe the Word
         ImageView imageView = (ImageView) view.findViewById(R.id.logo_image_view);
         if (word.getImageResource() == 0){
-            imageView.setVisibility(View.INVISIBLE);
+            imageView.setVisibility(View.GONE);
         } else {
             imageView.setImageResource(word.getImageResource());
         }
 
+        //set text with Miwok word
         TextView miwokTextView = (TextView) view.findViewById(R.id.miwok_text_view);
         miwokTextView.setText(word.getMiwokWord());
 
+        //set text with English word
         TextView englishTextView = (TextView) view.findViewById(R.id.english_text_view);
         englishTextView.setText(word.getEnglishWord());
+
+        //set background color for the list_view
+        LinearLayout rootTextView = (LinearLayout) view.findViewById(R.id.root_Text_View);
+        int color = ContextCompat.getColor(getContext(),this.backgroundColor);
+        rootTextView.setBackgroundColor(color);
 
         return view;
     }

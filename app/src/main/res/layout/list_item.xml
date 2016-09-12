@@ -2,29 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="88dp"
-    android:layout_margin="2dp"
-    android:orientation="horizontal">
+    android:layout_height="@dimen/list_item_height"
+    android:orientation="horizontal"
+    android:background="@color/tan_background">
 
     <ImageView
         android:id="@+id/logo_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height" />
 
     <LinearLayout
         android:id="@+id/root_Text_View"
-        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
+
         <TextView
             android:id="@+id/miwok_text_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="#000000"
-            tools:text="lutti" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            tools:text="lutti"/>
 
         <TextView
             android:id="@+id/english_text_view"
@@ -32,7 +34,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="#000000"
+            android:textColor="@android:color/white"
             tools:text="one" />
     </LinearLayout>
 
