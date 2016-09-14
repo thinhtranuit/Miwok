@@ -1,6 +1,7 @@
 package com.thinhtranit1601.miwok;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,6 +49,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
         //set text with English word
         TextView englishTextView = (TextView) view.findViewById(R.id.english_text_view);
         englishTextView.setText(word.getEnglishWord());
+
+        //set sound for Word
+        final MediaPlayer sound = MediaPlayer.create(getContext(), word.getRawResource());
+        View root = view.findViewById(R.id.root);
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sound.start();
+                Toast.makeText(getContext(), "Playing sound", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //set background color for the list_view
         LinearLayout rootTextView = (LinearLayout) view.findViewById(R.id.root_Text_View);
