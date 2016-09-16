@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
@@ -13,9 +13,10 @@
         android:layout_height="@dimen/list_item_height" />
 
     <LinearLayout
+        android:layout_toRightOf="@id/logo_image_view"
         android:id="@+id/root_Text_View"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/list_item_height"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -41,4 +42,11 @@
             tools:textColor="#000000" />
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:layout_marginRight="16dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_play_arrow_white_24dp"
+        android:layout_width="@dimen/play_icon_height"
+        android:layout_height="@dimen/play_icon_height" />
+</RelativeLayout>
